@@ -5,7 +5,7 @@
     </div>
     <div class="position-relative p-4">
       <img src="/img/aboutbg.png" width="100%" alt="">
-      <div class="row position-absolute row h-100 d-grid " style="top: 0; left: 0">
+      <div class="row position-absolute row h-100 d-grid " style="top: 0; right: 0">
         <div class="about row align-self-center col-8 mx-auto">
           <div class="col-4 text-center">
             <h1>
@@ -44,24 +44,23 @@
       </div>
 
     </div>
-    <div class="position-relative">
-      <img src="/img/faqbg.png" width="100%" alt="">
-      <div class="position-absolute w-100 " style="top: 0; right: 0;padding-top: 150px;">
-        <h1 class="w-100 mb-5 text-center">سـوالات مـتـداول</h1>
-        <div class="w-100 mt-5" style="overflow-x: scroll">
-          <div class="faq-inner d-flex" :style="{minWidth: width+'%'}">
-            <div v-for="(item,index) in faq" :key="index" class="faq">
-              <div class="faq-box bg-white me-4"
-                   :class="{'mt-5':index%2===1, 'ms-4':index===0, 'me-0':index===faq.length-1}">
-                <h1>{{ item.title }}</h1>
-                <p>{{ item.summary }}</p>
-              </div>
+    <div class="justify-content-center">
+      <div v-for="(item,index) in articles" :key="index" class="w-100 position-relative article px-4 mb-5">
+        <img v-if="index===0" src="/img/articlebgactive.png" width="100%" alt="">
+        <img v-else src="/img/articlebg.png" width="100%" alt="">
+        <div class="w-100 d-flex p-3 position-absolute justify-content-center"  style="top: 0;" :class="{'flex-row-reverse':index>1}">
+          <img :src="item.image" alt="">
+          <div class="d-flex position-relative" >
+            <img v-if="index===0"  src="/img/articleactive.png" alt="">
+            <img v-else-if="index>1" src="/img/articleeven.png" alt="">
+            <img v-else src="/img/articleodd.png" alt="">
+            <div class="position-absolute" style="top: 0; right: 0">
+              <h1>{{item.title}}</h1>
+              <p>{{item.summary}}</p>
             </div>
           </div>
-
         </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -95,9 +94,15 @@ export default {
       },
 
     ];
+    const articles = [
+      {id:1,image:'/img/article1.png',title:'راهـکاری نوین برای تغذیه زنبـورهای عسـل',summary:'محصولات ما با هدف بهبـود سلامـت زنبــورها و افـزایـش بهره‌وری تولید، طراحی شده‌اند.'},
+      {id:2,image:'/img/article2.png',title:'نقطـه تـلاقی دانش، صنعت و طبیعـت',summary:'در عسل لذیذ، تلاش می‌کنیم راهـکارهـایی علـمی و کـاربـردی بـرای تـغـذیـه زنـبـور عسـل ارائه دهیم.'},
+      {id:3,image:'/img/article3.png',title:'پیـوند صنـعـت و عـلـم',summary:'همکاری با دانشگاه شهید بهشتی، بستری برای تحقیق، توسعه و بهبود مستمر محصولات ما فراهم کرده است.'},
+      {id:4,image:'/img/article4.png',title:'جـایـی بـرای تـوسـعـه محـصـول در دل طبـیـعـت',summary:'خوراک زنبور عسل کوپابی، پیش از ورود به بازار، در زنبورستان علمـی و تحـت شـرایط واقعی مـورد بررسـی و ارزیابی قرار می‌گیـرد تا از کیفیت، ایمنی و عملکرد قابل اعتماد آن اطمیـنان حـاصـل شــود.'},
+    ];
     const width = (faq.length * 300 / 100) + 100;
     return {
-      faq, width
+      faq, width, articles
     }
   }
 }
