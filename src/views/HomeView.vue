@@ -45,7 +45,7 @@
 
     </div>
     <div class="justify-content-center">
-      <div v-for="(item,index) in articles" :key="index" class="w-100 position-relative article px-4 mb-5">
+      <div v-for="(item,index) in articles" :key="index" class="w-100 position-relative article px-4 mb-5 article" :class="{'active':index===0}">
         <img v-if="index===0" src="/img/articlebgactive.png" width="100%" alt="">
         <img v-else src="/img/articlebg.png" width="100%" alt="">
         <div class="w-100 d-flex p-3 position-absolute justify-content-center"  style="top: 0;" :class="{'flex-row-reverse':index>1}">
@@ -54,13 +54,25 @@
             <img v-if="index===0"  src="/img/articleactive.png" alt="">
             <img v-else-if="index>1" src="/img/articleeven.png" alt="">
             <img v-else src="/img/articleodd.png" alt="">
-            <div class="position-absolute" style="top: 0; right: 0">
-              <h1>{{item.title}}</h1>
-              <p>{{item.summary}}</p>
+            <div class="position-absolute d-grid h-100 w-100 px-5 text-center" style="top: 0; right: 0">
+             <div class="align-self-center mx-auto px-5">
+               <h1>{{item.title}}</h1>
+               <p>{{item.summary}}</p>
+               <div>
+                 <img v-if="index===0"  src="/img/articleactivemore.png">
+                 <img v-else src="/img/articlemore.png" >
+               </div>
+             </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="d-flex justify-content-center p-5">
+      <div><img src="/img/etehadieh.png" class="mx-5" height="120px"></div>
+      <div><img src="/img/beheshti.png" class="mx-5" height="100px"></div>
+      <div><img src="/img/Amadehlaziz.png" class="mx-5" height="80px"></div>
     </div>
   </div>
 </template>
@@ -146,5 +158,22 @@ export default {
   font-size: 19px;
 
 }
+
+.article h1 {
+color:#114C5A;
+}
+.article p {
+color:#114C5A;
+  text-align: justify;
+}
+.article .active  h1 {
+  color: #FFC10E;
+  font-weight: 400;
+}
+.article .active  p {
+  color: white;
+  text-align: justify;
+}
+
 
 </style>
