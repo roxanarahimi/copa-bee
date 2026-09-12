@@ -1,7 +1,13 @@
 <template>
   <div class="home">
-    <div>
+    <div class="position-relative">
       <img src="/img/hero.png" width="100%" alt="">
+      <div class="row position-absolute row h-100 d-grid text-light" style="top: 0; left: 100px;">
+       <div class="align-self-center text-center">
+         <h1 style="font-size: 100px">کوپابی</h1>
+         <b style="font-size: 38px">باهم برای پیشرفت صنعت زنبور داری</b>
+       </div>
+      </div>
     </div>
     <div class="position-relative p-4">
       <img src="/img/aboutbg.png" width="100%" alt="">
@@ -11,8 +17,7 @@
             <h1>
               کوپابی
             </h1>
-            <h2>باهـم برای پیشـرفت
-              صنعـت زنبـورداری</h2>
+            <h2>باهـم برای پیشـرفت صنعـت زنبـورداری</h2>
           </div>
           <div class="col-8">
             <p>کوپابی با هدف تولید تغذیه‌ای کامل، استاندارد و ایمن برای زنبور عسل شکل گرفت؛محصولی که به‌عنوان جایگزینی
