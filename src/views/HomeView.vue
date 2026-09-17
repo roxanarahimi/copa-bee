@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" @mousemove="cursorShadow($event)">
     <div class="position-relative">
       <img src="/img/hero.png" width="100%" alt="">
       <div class="row position-absolute row h-100 d-grid text-light" style="top: 0; left: 100px;">
@@ -34,9 +34,9 @@
       <img src="/img/faqbg.png" width="100%" alt="">
       <div class="position-absolute w-100 " style="top: 0; right: 0;padding-top: 150px;">
         <h1 class="w-100 mb-5 text-center">سـوالات مـتـداول</h1>
-        <div class="w-100 mt-5" style="overflow-x: scroll">
-          <div class="faq-inner d-flex" :style="{minWidth: width+'%'}">
-            <div v-for="(item,index) in faq" :key="index" class="faq">
+        <div class="w-100 mt-5 faqq" >
+          <div class="faq-inner d-flex" :style="{Width: width+'%'}">
+            <div v-for="(item,index) in faq" :key="index" class="faq" @mouseover="scroll($event)" @mouseleave="scrollBack($event)">
               <div class="faq-box bg-white me-4"
                    :class="{'mt-5':index%2===1, 'ms-4':index===0, 'me-0':index===faq.length-1}">
                 <h1>{{ item.title }}</h1>
@@ -84,42 +84,51 @@
 
 <script>
 
+import {onMounted} from "vue";
+
 export default {
   name: 'HomeView',
   components: {},
   setup() {
     const faq = [
-      {
-        id: 1,
-        title: 'خوراک زنبور کوپابی چه تفاوتی با سایر محصولات بازار دارد؟',
-        summary: 'کوپابی با بافت نیمه‌جامد، مصرف آسان‌تر، ماندگاری بالا و فرمولاسیون علمی، تجربه‌ای متفاوت از تغذیه زنبور عسل فراهم می‌کند.'
-      },
-      {
-        id: 2,
-        title: 'خمیر شیرین چیست و چه کاربردی دارد؟',
-        summary: 'خمیر شیرین یک خوراک مکمل برای زنبور عسل است که در زمان کمبود منابع طبیعی، به حفظ سلامت و پایداری کلنی کمک می‌کند.'
-      },
-      {
-        id: 3,
-        title: 'بهترین زمان استفاده از کوپابی چه زمانی است؟',
-        summary: 'این محصول برای فصل کمبود شهد، پاییز، زمستان و اوایل بهار طراحی شده است.'
-      },
-      {
-        id: 4,
-        title: 'آیا برای استفاده از کوپابی نیاز به افزودن آب وجود دارد؟',
-        summary: 'خیر. کوپابی کاملاً آماده مصرف است و بدون نیاز به رقیق‌سازی در اختیار زنبورها قرار می‌گیرد.'
-      },
-
+      {id: 1, title: 'خوراک زنبور کوپابی چه تفاوتی با سایر محصولات بازار دارد؟', summary: 'کوپابی با بافت نیمه‌جامد، مصرف آسان‌تر، ماندگاری بالا و فرمولاسیون علمی، تجربه‌ای متفاوت از تغذیه زنبور عسل فراهم می‌کند.'},
+      {id: 2, title: 'خمیر شیرین چیست و چه کاربردی دارد؟', summary: 'خمیر شیرین یک خوراک مکمل برای زنبور عسل است که در زمان کمبود منابع طبیعی، به حفظ سلامت و پایداری کلنی کمک می‌کند.'},
+      {id: 3, title: 'بهترین زمان استفاده از کوپابی چه زمانی است؟', summary: 'این محصول برای فصل کمبود شهد، پاییز، زمستان و اوایل بهار طراحی شده است.'},
+      {id: 4, title: 'آیا برای استفاده از کوپابی نیاز به افزودن آب وجود دارد؟', summary: 'خیر. کوپابی کاملاً آماده مصرف است و بدون نیاز به رقیق‌سازی در اختیار زنبورها قرار می‌گیرد.'},
     ];
     const articles = [
       {id:1,image:'/img/article1.png',title:'راهـکاری نوین برای تغذیه زنبـورهای عسـل',summary:'محصولات ما با هدف بهبـود سلامـت زنبــورها و افـزایـش بهره‌وری تولید، طراحی شده‌اند.'},
       {id:2,image:'/img/article2.png',title:'نقطـه تـلاقی دانش، صنعت و طبیعـت',summary:'در عسل لذیذ، تلاش می‌کنیم راهـکارهـایی علـمی و کـاربـردی بـرای تـغـذیـه زنـبـور عسـل ارائه دهیم.'},
       {id:3,image:'/img/article3.png',title:'پیـوند صنـعـت و عـلـم',summary:'همکاری با دانشگاه شهید بهشتی، بستری برای تحقیق، توسعه و بهبود مستمر محصولات ما فراهم کرده است.'},
       {id:4,image:'/img/article4.png',title:'جـایـی بـرای تـوسـعـه محـصـول در دل طبـیـعـت',summary:'خوراک زنبور عسل کوپابی، پیش از ورود به بازار، در زنبورستان علمـی و تحـت شـرایط واقعی مـورد بررسـی و ارزیابی قرار می‌گیـرد تا از کیفیت، ایمنی و عملکرد قابل اعتماد آن اطمیـنان حـاصـل شــود.'},
-    ];
+     ];
     const width = (faq.length * 300 / 100) + 100;
+
+    const cursorShadow = (e) => {
+      let shadow = document.querySelector('.cursor-shadow')
+
+      if (!shadow) {
+        shadow = document.createElement('div')
+        shadow.className = 'cursor-shadow'
+        document.querySelector('.home').appendChild(shadow)
+      }
+
+      const rect = e.currentTarget.getBoundingClientRect()
+
+      shadow.style.left = `${e.clientX - rect.left}px`
+      shadow.style.top = `${e.clientY - rect.top}px`
+    }
+    const scroll = (e)=>{
+      document.querySelector('.faqq').scrollLeft = -e.clientX;
+
+    }
+   const scrollBack = (e)=>{
+      document.querySelector('.faqq').scrollLeft = e.clientX;
+
+    }
+
     return {
-      faq, width, articles
+      faq, width, articles,scroll, scrollBack,cursorShadow
     }
   }
 }
