@@ -4,7 +4,7 @@ body, html {
     font-family: Vazir !important;
     direction: rtl !important;
     text-align: right !important;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
     background-color: transparent;
 }
 
@@ -60,4 +60,21 @@ body {
     }
 }
 
+.faqq {
+    overflow-x: scroll;
+}
+.home {
+    position: relative;
+    overflow: hidden;
+}
 
+.cursor-shadow {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: rgba(255, 128, 0, 1);
+    filter: blur(1px);
+    /*transform: translate(-20%, -20%);*/
+    pointer-events: none;
+}
