@@ -117,6 +117,11 @@ export default {
 
       shadow.style.left = `${e.clientX - rect.left}px`
       shadow.style.top = `${e.clientY - rect.top}px`
+
+      document.querySelector('.ffaq').addEventListener('mouseleave', () => {
+        document.querySelector('.cursor-shadow')?.remove();
+        })
+
     }
     const scroll = (e)=>{
       document.querySelector('.faqq').scrollLeft = -e.clientX;
