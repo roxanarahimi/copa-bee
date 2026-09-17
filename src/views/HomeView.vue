@@ -1,5 +1,5 @@
 <template>
-  <div class="home" @mousemove="cursorShadow($event)">
+  <div class="home">
     <div class="position-relative">
       <img src="/img/hero.png" width="100%" alt="">
       <div class="row position-absolute row h-100 d-grid text-light" style="top: 0; left: 100px;">
@@ -30,7 +30,7 @@
       </div>
     </div>
 
-    <div class="position-relative">
+    <div class="position-relative ffaq"  @mousemove="cursorShadow($event)">
       <img src="/img/faqbg.png" width="100%" alt="">
       <div class="position-absolute w-100 " style="top: 0; right: 0;padding-top: 150px;">
         <h1 class="w-100 mb-5 text-center">سـوالات مـتـداول</h1>
@@ -110,7 +110,7 @@ export default {
       if (!shadow) {
         shadow = document.createElement('div')
         shadow.className = 'cursor-shadow'
-        document.querySelector('.home').appendChild(shadow)
+        document.querySelector('.ffaq').appendChild(shadow)
       }
 
       const rect = e.currentTarget.getBoundingClientRect()
