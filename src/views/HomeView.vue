@@ -30,13 +30,13 @@
       </div>
     </div>
 
-    <div class="position-relative ffaq"  @mousemove="cursorShadow($event)">
-      <img src="/img/faqbg.png" width="100%" alt="">
+  <div class="position-relative ffaq"><!--   @mousemove="cursorShadow($event)"-->
+      <img src="/img/faqbg.png" width="100%" style="opacity: 0.3" alt="">
       <div class="position-absolute w-100 " style="top: 0; right: 0;padding-top: 150px;">
         <h1 class="w-100 mb-5 text-center">سـوالات مـتـداول</h1>
         <div class="w-100 mt-5 faqq" >
           <div class="faq-inner d-flex" :style="{Width: width+'%'}">
-            <div v-for="(item,index) in faq" :key="index" class="faq" @mouseover="scroll($event)" @mouseleave="scrollBack($event)">
+           <div v-for="(item,index) in faq" :key="index" class="faq" @mouseover="scroll($event)" @mouseleave="scrollBack($event)"> <!---->
               <div class="faq-box bg-white me-4"
                    :class="{'mt-5':index%2===1, 'ms-4':index===0, 'me-0':index===faq.length-1}">
                 <h1>{{ item.title }}</h1>
@@ -95,6 +95,18 @@ export default {
       {id: 2, title: 'خمیر شیرین چیست و چه کاربردی دارد؟', summary: 'خمیر شیرین یک خوراک مکمل برای زنبور عسل است که در زمان کمبود منابع طبیعی، به حفظ سلامت و پایداری کلنی کمک می‌کند.'},
       {id: 3, title: 'بهترین زمان استفاده از کوپابی چه زمانی است؟', summary: 'این محصول برای فصل کمبود شهد، پاییز، زمستان و اوایل بهار طراحی شده است.'},
       {id: 4, title: 'آیا برای استفاده از کوپابی نیاز به افزودن آب وجود دارد؟', summary: 'خیر. کوپابی کاملاً آماده مصرف است و بدون نیاز به رقیق‌سازی در اختیار زنبورها قرار می‌گیرد.'},
+    {id: 1, title: 'خوراک زنبور کوپابی چه تفاوتی با سایر محصولات بازار دارد؟', summary: 'کوپابی با بافت نیمه‌جامد، مصرف آسان‌تر، ماندگاری بالا و فرمولاسیون علمی، تجربه‌ای متفاوت از تغذیه زنبور عسل فراهم می‌کند.'},
+      {id: 2, title: 'خمیر شیرین چیست و چه کاربردی دارد؟', summary: 'خمیر شیرین یک خوراک مکمل برای زنبور عسل است که در زمان کمبود منابع طبیعی، به حفظ سلامت و پایداری کلنی کمک می‌کند.'},
+      {id: 3, title: 'بهترین زمان استفاده از کوپابی چه زمانی است؟', summary: 'این محصول برای فصل کمبود شهد، پاییز، زمستان و اوایل بهار طراحی شده است.'},
+      {id: 4, title: 'آیا برای استفاده از کوپابی نیاز به افزودن آب وجود دارد؟', summary: 'خیر. کوپابی کاملاً آماده مصرف است و بدون نیاز به رقیق‌سازی در اختیار زنبورها قرار می‌گیرد.'},
+    {id: 1, title: 'خوراک زنبور کوپابی چه تفاوتی با سایر محصولات بازار دارد؟', summary: 'کوپابی با بافت نیمه‌جامد، مصرف آسان‌تر، ماندگاری بالا و فرمولاسیون علمی، تجربه‌ای متفاوت از تغذیه زنبور عسل فراهم می‌کند.'},
+      {id: 2, title: 'خمیر شیرین چیست و چه کاربردی دارد؟', summary: 'خمیر شیرین یک خوراک مکمل برای زنبور عسل است که در زمان کمبود منابع طبیعی، به حفظ سلامت و پایداری کلنی کمک می‌کند.'},
+      {id: 3, title: 'بهترین زمان استفاده از کوپابی چه زمانی است؟', summary: 'این محصول برای فصل کمبود شهد، پاییز، زمستان و اوایل بهار طراحی شده است.'},
+      {id: 4, title: 'آیا برای استفاده از کوپابی نیاز به افزودن آب وجود دارد؟', summary: 'خیر. کوپابی کاملاً آماده مصرف است و بدون نیاز به رقیق‌سازی در اختیار زنبورها قرار می‌گیرد.'},
+    {id: 1, title: 'خوراک زنبور کوپابی چه تفاوتی با سایر محصولات بازار دارد؟', summary: 'کوپابی با بافت نیمه‌جامد، مصرف آسان‌تر، ماندگاری بالا و فرمولاسیون علمی، تجربه‌ای متفاوت از تغذیه زنبور عسل فراهم می‌کند.'},
+      {id: 2, title: 'خمیر شیرین چیست و چه کاربردی دارد؟', summary: 'خمیر شیرین یک خوراک مکمل برای زنبور عسل است که در زمان کمبود منابع طبیعی، به حفظ سلامت و پایداری کلنی کمک می‌کند.'},
+      {id: 3, title: 'بهترین زمان استفاده از کوپابی چه زمانی است؟', summary: 'این محصول برای فصل کمبود شهد، پاییز، زمستان و اوایل بهار طراحی شده است.'},
+      {id: 4, title: 'آیا برای استفاده از کوپابی نیاز به افزودن آب وجود دارد؟', summary: 'خیر. کوپابی کاملاً آماده مصرف است و بدون نیاز به رقیق‌سازی در اختیار زنبورها قرار می‌گیرد.'},
     ];
     const articles = [
       {id:1,image:'/img/article1.png',title:'راهـکاری نوین برای تغذیه زنبـورهای عسـل',summary:'محصولات ما با هدف بهبـود سلامـت زنبــورها و افـزایـش بهره‌وری تولید، طراحی شده‌اند.'},
@@ -104,25 +116,6 @@ export default {
      ];
     const width = (faq.length * 300 / 100) + 100;
 
-    const cursorShadow = (e) => {
-      let shadow = document.querySelector('.cursor-shadow')
-
-      if (!shadow) {
-        shadow = document.createElement('div')
-        shadow.className = 'cursor-shadow'
-        document.querySelector('.ffaq').appendChild(shadow)
-      }
-
-      const rect = e.currentTarget.getBoundingClientRect()
-
-      shadow.style.left = `${e.clientX - rect.left}px`
-      shadow.style.top = `${e.clientY - rect.top}px`
-
-      document.querySelector('.ffaq').addEventListener('mouseleave', () => {
-        document.querySelector('.cursor-shadow')?.remove();
-        })
-
-    }
     const scroll = (e)=>{
       document.querySelector('.faqq').scrollLeft = -e.clientX;
 
@@ -132,8 +125,11 @@ export default {
 
     }
 
+    onMounted(()=>{
+      // cursorShadow(Event)
+    })
     return {
-      faq, width, articles,scroll, scrollBack,cursorShadow
+      faq, width, articles,scroll, scrollBack
     }
   }
 }
@@ -193,6 +189,10 @@ color:#114C5A;
   color: white;
   text-align: justify;
 }
-
+/**.faq:hover{
+//  transform: scale(1.05);
+//  margin-top: -10px;
+}
+**/
 
 </style>
