@@ -6,10 +6,12 @@ body, html {
     text-align: right !important;
     scroll-behavior: smooth !important;
     background-color: transparent;
+
 }
 
 * {
-    transition: all 0.5s ease !important;
+    transition: all 0.005s ease !important;
+    cursor: none !important;
 }
 body {
 
@@ -70,11 +72,21 @@ body {
 
 .cursor-shadow {
     position: absolute;
-    width: 25px;
-    height: 25px;
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 128, 0, 0.01);
     border-radius: 50%;
-    background: rgba(255, 128, 0, 1);
+    background-color: rgba(255, 128, 0, 1);
+    background-image: url("/img/arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
     filter: blur(1px);
     /*transform: translate(-20%, -20%);*/
     pointer-events: none;
+    z-index:20000000000000000;
+    cursor: none !important;
 }
+/*.faq{*/
+/*    cursor: pointer;*/
+/*}*/
