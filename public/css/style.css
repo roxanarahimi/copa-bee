@@ -10,7 +10,7 @@ body, html {
 }
 
 * {
-    transition: all 0.005s ease !important;
+    transition: all 1s ease !important;
     cursor: none !important;
 }
 body {
@@ -45,7 +45,6 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: darkgray;
     cursor: pointer !important;
-
 }
 @media(max-width: 700px) {
     ::-webkit-scrollbar {
@@ -87,6 +86,59 @@ body {
     z-index:20000000000000000;
     cursor: none !important;
 }
-/*.faq{*/
-/*    cursor: pointer;*/
-/*}*/
+.about h1 {
+    font-size: 96px;
+
+}
+
+.about h2 {
+    font-size: 32px;
+
+}
+
+.about p {
+    font-size: 23px;
+
+}
+
+.faq h1 {
+    font-size: 46px;
+}
+
+.faq-box {
+    width: 396px;
+    height: 482px;
+    border-radius: 48px;
+    padding: 82px 36px 36px 36px;
+    box-shadow: 12px 12px 20px 0px #0000001A;
+    text-align: justify;
+}
+
+.faq-box h1 {
+    font-size: 23px;
+    color: #EC6F00;
+    font-weight: 400;
+}
+
+.faq-box p {
+    font-size: 19px;
+
+}
+.article{
+    margin-top: -300px;
+}
+.article h1 {
+    color:#114C5A;
+}
+.article p {
+    color:#114C5A;
+    text-align: justify;
+}
+.activeArticle h1 {
+    color: #FFC10E !important;
+    font-weight: 400 !important;
+}
+.activeArticle p {
+    color: white !important;
+    text-align: justify !important;
+}

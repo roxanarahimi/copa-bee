@@ -49,22 +49,22 @@
       </div>
 
     </div>
-    <div class="justify-content-center">
-      <div v-for="(item,index) in articles" :key="index" class="w-100 position-relative article px-4 mb-5 article" :class="{'active':index===0}">
-        <img v-if="index===0" src="/img/articlebgactive.png" width="100%" alt="">
+    <div class="justify-content-center articles" @scroll="scrollArticles" style="padding-top: 300px">
+      <div v-for="(item,index) in articles" :key="index" class="w-100 position-relative px-4 article">
+        <img v-if="index===activeIndex" src="/img/articlebgactive.png" width="100%" alt="">
         <img v-else src="/img/articlebg.png" width="100%" alt="">
         <div class="w-100 d-flex p-3 position-absolute justify-content-center"  style="top: 0;" :class="{'flex-row-reverse':index>1}">
           <img :src="item.image" alt="">
           <div class="d-flex position-relative" >
-            <img v-if="index===0"  src="/img/articleactive.png" alt="">
-            <img v-else-if="index>1" src="/img/articleeven.png" alt="">
+<!--            <img v-if="index===0"  src="/img/articleactive.png" alt="">-->
+            <img v-if="index>1" src="/img/articleeven.png" alt="">
             <img v-else src="/img/articleodd.png" alt="">
             <div class="position-absolute d-grid h-100 w-100 px-5 text-center" style="top: 0; right: 0">
              <div class="align-self-center mx-auto px-5">
                <h1>{{item.title}}</h1>
                <p>{{item.summary}}</p>
                <div>
-                 <img v-if="index===0"  src="/img/articleactivemore.png">
+                 <img v-if="index===activeIndex"  src="/img/articleactivemore.png">
                  <img v-else src="/img/articlemore.png" >
                </div>
              </div>
@@ -84,7 +84,7 @@
 
 <script>
 
-import {onMounted} from "vue";
+import {onMounted, ref} from "vue";
 
 export default {
   name: 'HomeView',
@@ -125,74 +125,37 @@ export default {
 
     }
 
+
+    const activeIndex = ref();
+    const scrollArticles = ()=>{
+      let cards = document.querySelectorAll('.article');
+      // console.log(document.querySelector('.article.active').getBoundingClientRect().top);
+      // console.log(window.scrollY  )
+      let index = 0;
+      cards.forEach((card)=>{
+        let top = card.getBoundingClientRect().top
+               if(top>=150 && top<=300){
+          console.log(top)
+          document.querySelector('.activeArticle')?.classList.remove('activeArticle')
+          card.classList.add('activeArticle')
+        activeIndex.value = index;
+          card.style.marginTop = "-300px"
+          if (card.nextElementSibling){ card.nextElementSibling.style.marginTop = '-100px'}
+        }
+        index++;
+
+      })
+
+    }
     onMounted(()=>{
-      // cursorShadow(Event)
+      window.addEventListener('scroll',scrollArticles)
     })
     return {
-      faq, width, articles,scroll, scrollBack
+      faq, width, articles,scroll, scrollBack, scrollArticles,activeIndex
     }
   }
 }
 </script>
 <style>
-.about h1 {
-  font-size: 96px;
-
-}
-
-.about h2 {
-  font-size: 32px;
-
-}
-
-.about p {
-  font-size: 23px;
-
-}
-
-.faq h1 {
-  font-size: 46px;
-}
-
-.faq-box {
-  width: 396px;
-  height: 482px;
-  border-radius: 48px;
-  padding: 82px 36px 36px 36px;
-  box-shadow: 12px 12px 20px 0px #0000001A;
-  text-align: justify;
-}
-
-.faq-box h1 {
-  font-size: 23px;
-  color: #EC6F00;
-  font-weight: 400;
-}
-
-.faq-box p {
-  font-size: 19px;
-
-}
-
-.article h1 {
-color:#114C5A;
-}
-.article p {
-color:#114C5A;
-  text-align: justify;
-}
-.article .active  h1 {
-  color: #FFC10E;
-  font-weight: 400;
-}
-.article .active  p {
-  color: white;
-  text-align: justify;
-}
-/**.faq:hover{
-//  transform: scale(1.05);
-//  margin-top: -10px;
-}
-**/
 
 </style>
