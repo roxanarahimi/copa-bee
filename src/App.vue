@@ -1,5 +1,5 @@
 <template >
-  <div class="position-relative" @mousemove="cursorShadow($event)">
+  <div class="position-relative w-100 p-0 m-0" @mousemove="cursorShadow($event)">
     <nav-bar />
     <router-view/>
     <the-footer />

@@ -16,10 +16,10 @@
     <div class="about">
       <div class="position-relative p-4  text-center">
         <img src="/img/aboutbg.png" class="d-none d-md-block" width="100%" alt="">
-        <img src="/img/aboutbgM.png" class="d-md-none" width="80%" alt="">
+        <img src="/img/aboutbgM.png" class="d-md-none" width="100%" alt="">
         <div class="row position-absolute row min-vh-100 d-grid " style="top: 0; right: 0">
           <div class="about row align-self-center col-8 mx-auto">
-            <div class="col-md-4 text-center">
+            <div class="col-md-4 text-center mt-5 mt-md-0">
               <h1>
                 کوپابی
               </h1>

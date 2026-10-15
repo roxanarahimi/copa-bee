@@ -13,11 +13,13 @@ body, html {
     transition: all 1s ease !important;
     cursor: none !important;
 }
+
 body {
 
     overflow-x: hidden;
     margin: 0 auto;
 }
+
 ::-webkit-scrollbar {
     width: 5px;
     height: 0px;
@@ -46,6 +48,7 @@ body {
     background: darkgray;
     cursor: pointer !important;
 }
+
 .ffaq {
     position: relative;
     isolation: isolate;
@@ -61,54 +64,79 @@ body {
     background-size: cover !important;
     padding: 80px 0 !important;
 }
-.articles{
-    margin-top:400px
+
+.articles {
+    margin-top: 400px
 }
-.mt-300{
-   margin-top: -300px;
+
+.mt-300 {
+    margin-top: -300px;
 }
-.mt-100{
-   margin-top: -100px;
+
+.mt-100 {
+    margin-top: -100px;
 }
-.logos{
+
+.logos {
     height: 100px;
 }
-.logoss:hover{
-transform: scale(1.05)}
-@media(max-width: 700px) {
-    .logos{
+
+.logoss:hover {
+    transform: scale(1.05)
+}
+
+.footerbg {
+    background: url("/img/footerbg.png") center top no-repeat !important;
+    background-size: 100% 100% !important;
+}
+
+@media (max-width: 700px) {
+    .footerbg {
+        background: url("/img/footerbgM.png") center top no-repeat !important;
+        background-size: 100% 100% !important;
+    }
+    .logos {
         height: 60px;
     }
-    .articles{
-        margin-top:100px
+
+    .articles {
+        margin-top: 100px
     }
-    .article{
+
+    .article {
         margin-top: -100px;
     }
-    .mt-300{
+
+    .mt-300 {
         margin-top: -100px;
     }
-    .mt-100{
+
+    .mt-100 {
         margin-top: -30px;
     }
 
-    .article-text h1{
+    .article-text h1 {
         font-size: 10px;
     }
-    .article-text p{
+
+    .article-text p {
         font-size: 8px;
     }
-    .article-more-btn{
+
+    .article-more-btn {
         width: 100px;
     }
+
     ::-webkit-scrollbar {
         width: 0 !important;
         background: transparent !important;
     }
+
     /* Handle */
     ::-webkit-scrollbar-thumb {
         background: transparent !important;
     }
+
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
         background: transparent !important;
@@ -118,6 +146,7 @@ transform: scale(1.05)}
 .faqq {
     overflow-x: scroll;
 }
+
 .home {
     position: relative;
     overflow: hidden;
@@ -133,13 +162,14 @@ transform: scale(1.05)}
     background-image: url("/img/arrow.svg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size:cover;
+    background-size: cover;
     filter: blur(1px);
     /*transform: translate(-20%, -20%);*/
     pointer-events: none;
-    z-index:20000000000000000;
+    z-index: 20000000000000000;
     cursor: none !important;
 }
+
 .about h1 {
     font-size: 96px;
 
@@ -181,30 +211,39 @@ transform: scale(1.05)}
 }
 
 .article h1 {
-    color:#114C5A;
+    color: #114C5A;
 }
+
 .article p {
-    color:#114C5A;
+    color: #114C5A;
     text-align: justify;
 }
+
 .activeArticle h1 {
     color: #FFC10E !important;
     font-weight: 400 !important;
 }
+
 .activeArticle p {
     color: white !important;
     text-align: justify !important;
 }
-.text-justify{
+
+.text-justify {
     text-align: justify;
 
 }
-.articlebgactive{
+
+.articlebgactive {
     background: url("/img/articlebgactive.png") center no-repeat;
     background-size: 100% 100%;
 
 }
-.articlebg{
+
+.articlebg {
     background: url("/img/articlebg.png") center no-repeat;
     background-size: 100% 100%;
+}
+.nav-item{
+    text-align: center !important;
 }

@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar bg-dark border-bottom border-body navbar-expand-lg" data-bs-theme="dark">
     <div class="container-fluid px-5 w-100 d-lg-flex justify-content-lg-between">
-      <div class="d-flex text-light">
+      <div class="d-flex text-light d-none d-md-block">
         <p class="m-0">تماس باما</p>
         <img src="/img/phone.svg" alt="">
       </div>
@@ -44,6 +44,10 @@
           </li>
 
         </ul>
+      </div>
+      <div class="d-flex text-light d-md-none">
+        <p class="m-0">تماس باما</p>
+        <img src="/img/phone.svg" alt="">
       </div>
       <div>
         <img src="/img/CopaB.png" width="50px" alt="">
