@@ -1,22 +1,19 @@
 <template>
-  <div class="justify-content-center articles" @scroll="scrollArticles" style="padding-top:0px">
-    <div v-for="(item,index) in articles" :key="index" class="w-100 position-relative px-4 article">
-      <img v-if="index===activeIndex" src="/img/articlebgactive.png" width="100%" alt="">
-      <img v-else src="/img/articlebg.png" width="100%" alt="">
-      <div class="w-100 d-flex p-3 position-absolute justify-content-center" style="top: 0;"
-           :class="{'flex-row-reverse':index>1}">
-        <img :src="item.image" alt="">
-        <div class="d-flex position-relative">
+  <div class="justify-content-center articles px-2 px-md-5" @scroll="scrollArticles" >
+    <div v-for="(item,index) in articles" :key="index" class=" w-100 position-relative px-4 article mt-300" :class="{'articlebgactive':index===activeIndex,'articlebg':index!==activeIndex}" >
+      <div class="w-100 row py-2 p-md-4 justify-content-center" style="top: 0;" :class="{'flex-row-reverse':index>1}">
+        <div class="col-4 px-0"><img  :src="item.image" width="100%" alt=""></div>
+        <div class="col-8 px-0 row justify-content-center position-relative">
           <!--            <img v-if="index===0"  src="/img/articleactive.png" alt="">-->
-          <img v-if="index>1" src="/img/articleeven.png" alt="">
-          <img v-else src="/img/articleodd.png" alt="">
-          <div class="position-absolute d-grid h-100 w-100 px-5 text-center" style="top: 0; right: 0">
-            <div class="align-self-center mx-auto px-5">
+          <img v-if="index>1" src="/img/articleeven.png" width="95%" alt="">
+          <img v-else src="/img/articleodd.png" width="95%" alt="">
+          <div class="position-absolute d-grid h-100 w-100 px-3 px-md-5 text-center" style="top: 0; right: 0">
+            <div class="align-self-center mx-auto  px-md-5 article-text">
               <h1>{{ item.title }}</h1>
               <p>{{ item.summary }}</p>
               <div>
-                <img v-if="index===activeIndex" src="/img/articleactivemore.png">
-                <img v-else src="/img/articlemore.png">
+                <img v-if="index===activeIndex" class="article-more-btn" src="/img/articleactivemore.png">
+                <img v-else class="article-more-btn" src="/img/articlemore.png">
               </div>
             </div>
           </div>
@@ -69,9 +66,11 @@ export default {
           document.querySelector('.activeArticle')?.classList.remove('activeArticle')
           card.classList.add('activeArticle')
           activeIndex.value = index;
-          card.style.marginTop = "-300px"
+          card.classList.remove('mt-100');
+          card.classList.add('mt-300');
           if (card.nextElementSibling) {
-            card.nextElementSibling.style.marginTop = '-100px'
+            card.nextElementSibling.classList.remove('mt-300')
+            card.nextElementSibling.classList.add('mt-100')
           }
         }
         index++;

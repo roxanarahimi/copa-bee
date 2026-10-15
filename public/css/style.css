@@ -64,7 +64,36 @@ body {
 .articles{
     margin-top:400px
 }
+.mt-300{
+   margin-top: -300px;
+}
+.mt-100{
+   margin-top: -100px;
+}
+
 @media(max-width: 700px) {
+    .articles{
+        margin-top:100px
+    }
+    .article{
+        margin-top: -100px;
+    }
+    .mt-300{
+        margin-top: -100px;
+    }
+    .mt-100{
+        margin-top: -30px;
+    }
+
+    .article-text h1{
+        font-size: 10px;
+    }
+    .article-text p{
+        font-size: 8px;
+    }
+    .article-more-btn{
+        width: 100px;
+    }
     ::-webkit-scrollbar {
         width: 0 !important;
         background: transparent !important;
@@ -143,9 +172,7 @@ body {
     font-size: 19px;
 
 }
-.article{
-    margin-top: -300px;
-}
+
 .article h1 {
     color:#114C5A;
 }
@@ -164,4 +191,13 @@ body {
 .text-justify{
     text-align: justify;
 
+}
+.articlebgactive{
+    background: url("/img/articlebgactive.png") center no-repeat;
+    background-size: 100% 100%;
+
+}
+.articlebg{
+    background: url("/img/articlebg.png") center no-repeat;
+    background-size: 100% 100%;
 }
