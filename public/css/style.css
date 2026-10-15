@@ -70,8 +70,15 @@ body {
 .mt-100{
    margin-top: -100px;
 }
-
+.logos{
+    height: 100px;
+}
+.logoss:hover{
+transform: scale(1.05)}
 @media(max-width: 700px) {
+    .logos{
+        height: 60px;
+    }
     .articles{
         margin-top:100px
     }

@@ -40,10 +40,10 @@
 
     <faq/>
     <articles/>
-    <div class="d-flex justify-content-center p-5">
-      <div><img src="/img/etehadieh.png" class="mx-5" height="120px"></div>
-      <div><img src="/img/beheshti.png" class="mx-5" height="100px"></div>
-      <div><img src="/img/Amadehlaziz.png" class="mx-5" height="80px"></div>
+    <div class="w-100 d-flex justify-content-center my-5 px-5 logos">
+      <div class="h-100"><img src="/img/beheshti.png" class="mx-2 mx-md-5 logoss" height="100%"></div>
+      <div class="h-100"><img src="/img/Amadehlaziz.png" class="mx-2 mx-md-5 logoss" height="100%"></div>
+      <div class="h-100"><img src="/img/etehadieh.png" class="mx-2 mx-md-5 logoss" height="100%"></div>
     </div>
   </div>
 </template>
