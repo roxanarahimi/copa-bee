@@ -46,6 +46,24 @@ body {
     background: darkgray;
     cursor: pointer !important;
 }
+.ffaq {
+    position: relative;
+    isolation: isolate;
+}
+
+.ffaq::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("/img/faqbg.png") center top no-repeat !important;
+    opacity: 0.3;
+    z-index: -1;
+    background-size: cover !important;
+    padding: 80px 0 !important;
+}
+.articles{
+    margin-top:400px
+}
 @media(max-width: 700px) {
     ::-webkit-scrollbar {
         width: 0 !important;
@@ -107,11 +125,12 @@ body {
 
 .faq-box {
     width: 396px;
-    height: 482px;
+    height: 360px;
     border-radius: 48px;
     padding: 82px 36px 36px 36px;
     box-shadow: 12px 12px 20px 0px #0000001A;
     text-align: justify;
+    margin-bottom: 40px;
 }
 
 .faq-box h1 {
@@ -141,4 +160,8 @@ body {
 .activeArticle p {
     color: white !important;
     text-align: justify !important;
+}
+.text-justify{
+    text-align: justify;
+
 }
